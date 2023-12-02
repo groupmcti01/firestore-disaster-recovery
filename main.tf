@@ -2,7 +2,7 @@ data "google_compute_default_service_account" "default" {
 }
 
 resource "google_cloud_scheduler_job" "capston2" {
-  name             = "capston2-mcit"
+  name             = "${var.prefix}scheduler"
   description      = "test http job"
   schedule         = 15*/1 * * * *"
   attempt_deadline = "320s"
@@ -24,7 +24,7 @@ resource "google_service_account" "capston2-mcit-service-testing" {
 }
 
 resource "google_workflows_workflow" "example" {
-  name          = "workflow"
+  name          = "${var.prefix}workflow"
   region        = "us-central1"
   description   = "Magic"
   service_account = "capston2-mcit-service-testing"

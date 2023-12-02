@@ -4,9 +4,9 @@ data "google_compute_default_service_account" "default" {
 resource "google_cloud_scheduler_job" "capston2" {
   name             = "capston2-mcit"
   description      = "test http job"
-  schedule         = "*/8 * * * *"
-  time_zone        = "America/New_York"
+  schedule         = 15*/1 * * * *"
   attempt_deadline = "320s"
+  region           = northamerica-northeast1
 
   http_target {
     http_method = "POST"
@@ -18,7 +18,7 @@ resource "google_cloud_scheduler_job" "capston2" {
   }
 }
 
-resource "google_service_account" "capston2" {
+resource "google_service_account" "capston2-mcit-service-testing" {
   account_id   = "my-account"
   display_name = "Test Service Account"
 }
@@ -27,7 +27,7 @@ resource "google_workflows_workflow" "example" {
   name          = "workflow"
   region        = "us-central1"
   description   = "Magic"
-  service_account = google_service_account.test_account.id
+  service_account = "capston2-mcit-service-testing"
   labels = {
     env = "test"
   }
@@ -62,4 +62,32 @@ resource "google_workflows_workflow" "example" {
   - returnOutput:
       return: $${wikiResult.body[1]}
 EOF
+}
+
+resource "google_project" "project" {
+  project_id = "mcti-capstone2-dev"
+  name       = "001-mcti-capstone2-dev"
+  org_id     = "0"
+}
+
+resource "time_sleep" "wait_60_seconds" {
+  depends_on = [google_project.project]
+
+  create_duration = "60s"
+}
+
+resource "google_project_service" "firestore" {
+  project = google_project.project.project_id
+  service = "firestore.googleapis.com"
+  # Needed for CI tests for permissions to propagate, should not be needed for actual usage
+  depends_on = [time_sleep.wait_60_seconds]
+}
+
+resource "google_firestore_database" "database" {
+  project     = "project"
+  name        = "(default)"
+  location_id = "nam5"
+  type        = "FIRESTORE_NATIVE"
+
+  depends_on = [google_project_service.firestore]
 }

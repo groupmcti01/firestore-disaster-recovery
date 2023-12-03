@@ -1,21 +1,23 @@
-variable "project_id" {
-  type        = string
-  description = "project ID"
+variable "bucket_name_state" {
+    type        =   string
+    description =   "Storage tf state file"
+    default     =   "capstone2-bucket-tf-state"
 }
 
-variable "region" {
-  type        = string
-  description = "Compute Region"
+variable "location_bucket_tf" {
+  type          =   string
+  description   =   "bucket region"
+  default       =   "northamerica-northeast1"
 }
 
-variable "zone" {
-  type        = string
-  description = "Compute Zone"
+variable "versioning" {
+    type        =   string
+    description =   "Bucket versioning"
+    default     =   true
 }
-variable "prefix"{
-  type        = string
-  default="csp2"
 
-variable "GOOGLE_CREDENTIALS"{
-  type=string
+variable "apis_state" {
+    type        =   string
+    description =   "Enable API"
+    default     =   true
 }

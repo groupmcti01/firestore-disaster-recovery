@@ -23,22 +23,22 @@ variable "uniform_bucket_level_access" {}
 variable "retention_period" {} 
 
 # lifecycle rule condition
-variables "lifecycle_rule_age_coldline" {}
+variable "lifecycle_rule_age_coldline" {}
 
 # lifecycle rule action 
-variables "lifecycle_rule_set_storage_type" {}
+variable "lifecycle_rule_set_storage_type" {}
 
 # lifecycle rule action 
-variables "lifecycle_rule_set_storage_class" {}
+variable "lifecycle_rule_set_storage_class" {}
 
 # lifecycle rule condition
-variables "lifecycle_rule_age_deletion" {}
+variable "lifecycle_rule_age_deletion" {}
 
 # lifecycle rule action 
-variables "lifecycle_rule_set_deletion" {}
+variable "lifecycle_rule_set_deletion" {}
 
 # bucket name
-variables "bucket_name" {}
+variable "bucket_name" {}
 
 # backend
-variables "key_terraform" {}
+variable "key_terraform" {}

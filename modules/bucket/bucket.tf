@@ -18,7 +18,7 @@ resource "google_storage_bucket" "capstone2-mcti-bucket" {
   lifecycle_rule {
     condition {
       # days  
-      age > var.lifecycle_rule_age_coldline
+      age = var.lifecycle_rule_age_coldline
     }
     action {
       type = var.lifecycle_rule_set_storage_type
@@ -29,7 +29,7 @@ resource "google_storage_bucket" "capstone2-mcti-bucket" {
   lifecycle_rule {
     condition {
       # days  
-      age >= var.lifecycle_rule_age_deletion
+      age = var.lifecycle_rule_age_deletion
     }
     action {
       type = var.lifecycle_rule_set_deletion

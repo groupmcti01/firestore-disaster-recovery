@@ -4,8 +4,8 @@
 
 resource "google_storage_bucket" "capstone2-mcti-bucket" {
                    
-  name          = "${var.project_id}-${var.project_name}-${var.organization}-${var.bucket_name}-${var.environment}"
-  location      = "northamerica-northeast1"
+  name          = "${var.project_name}-${var.organization}-${var.bucket_name}-${var.environment}"
+  location      = var.region
   project       = "${var.project_id}-${var.project_name}-${var.organization}-${var.environment}"
   storage_class = var.storage_class
   uniform_bucket_level_access = var.uniform_bucket_level_access

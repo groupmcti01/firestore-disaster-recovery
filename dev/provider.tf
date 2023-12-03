@@ -5,13 +5,6 @@ terraform {
       version = "4.57.0"
     }
   }
-    
-  backend "gcs" {
-    bucket = var.bucket_name_state
-    region = var.location_bucket_tf
-    key    = var.key_terraform
-    prefix = var.environment
-  }
 }
 
 provider "google" {
@@ -19,11 +12,10 @@ provider "google" {
 }
 
 terraform {
-  cloud {
-    organization = "mcti-group"
-
-    workspaces {
-      name = "firestore-disaster-recovery"
-    }
+  backend "gcs" {
+    bucket = var.bucket_name_state
+    region = var.location_bucket_tf
+    key    = var.key_terraform
+    prefix = var.environment
   }
 }

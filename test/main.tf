@@ -1,13 +1,17 @@
 module "bucket" {
   source = "../modules/bucket"
 
-  name = var.bucket_name
+  name                          =   var.bucket_name
   location                      =   var.location
   project                       =   var.project_id
   storage_class                 =   "STANDARD"
 
-  ## Retention period in seconds = 3 days
-  retention_period                    =       259200
+
+  retention_policy {
+    is_locked                           =       false
+    ## Retention period in seconds = 3 days
+    retention_period                    =       259200
+  }
   
   ## Lifecycle rule policy 1 (if age greater than 1 day set to storage class Coldline)
   lifecycle_rules = [

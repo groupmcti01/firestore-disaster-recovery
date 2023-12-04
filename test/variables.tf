@@ -29,14 +29,16 @@ variable "environment" {
 variable "project_id" {
   description = "Project ID"
   type        = string
-  default     = "${var.organization}-${var.project_name}-${var.environment}"
+# default     = "${var.organization}-${var.project_name}-${var.environment}"
+  default     = "mcti-capstone2-testing"
 }
 
 # bucket name
 variable "bucket_name" {
   type        =   string
   description =   ""
-  default     =   "${var.organization}-${var.project_name}-firestore-backup-${var.environment}"
+# default     =   "${var.organization}-${var.project_name}-firestore-backup-${var.environment}"
+  default     =   "mcti-capstone2-firestore-backup-testing"
 }
 
 # backend

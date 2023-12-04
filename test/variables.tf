@@ -23,7 +23,7 @@ variable "organization" {
 variable "region" {
   type        =   string
   description =   "Region"
-  default     =   "northamerica-northeast1 
+  default     =   "northamerica-northeast1" 
 }
 
 # environment name

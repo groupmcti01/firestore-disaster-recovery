@@ -30,7 +30,7 @@ variable "region" {
 variable "environment" {
   type        =   string
   description =   "Environment Name"
-  default     =   "test"
+  default     =   "prod"
 }
 
 variable "bucket_name_state" {

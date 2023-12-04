@@ -7,7 +7,10 @@ module "bucket" {
   storage_class                 =   "STANDARD"
 
 
-  retention_policy.retention_period = 259200
+  retention_policy = {
+    is_locked        =  false
+    retention_period =  259200
+  }
   
   ## Lifecycle rule policy 1 (if age greater than 1 day set to storage class Coldline)
   lifecycle_rules = [
@@ -21,6 +24,7 @@ module "bucket" {
       }
     }
   ]
+
   ## Lifecycle rule policy 2 (if age greater than 4 days delete recovery point)
   #lifecycle_rules = [
   #{

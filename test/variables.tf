@@ -42,4 +42,7 @@ variable "bucket_name" {
 }
 
 # backend
-variable "key_terraform" {}
+variable "key_terraform" {
+  type        =   string
+  default     =   "testing/terraform.tfstate"
+}

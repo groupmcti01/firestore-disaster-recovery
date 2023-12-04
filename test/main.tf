@@ -22,14 +22,14 @@ module "bucket" {
     }
   ]
   ## Lifecycle rule policy 2 (if age greater than 4 days delete recovery point)
-  lifecycle_rules = [
-  {
-    action = {
-      type = "Delete"
-    }
-    condition = {
-      age = "4"
-    }
-  }
-  ]
+  #lifecycle_rules = [
+  #{
+  #  action = {
+  #    type = "Delete"
+  #  }
+  #  condition = {
+  #    age = "4"
+  #  }
+  #}
+  #]
 }

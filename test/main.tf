@@ -1,9 +1,9 @@
 module "bucket" {
   source = "../modules/bucket"
 
-  name                          =   var.bucket_name
+  bucket_name                   =   var.bucket_name
   location                      =   var.location
-  project                       =   var.project_id
+  project_id                    =   var.project_id
   storage_class                 =   "STANDARD"
 
 
@@ -12,8 +12,9 @@ module "bucket" {
     retention_period =  259200
   }
   
-  ## Lifecycle rule policy 1 (if age greater than 1 day set to storage class Coldline)
+  
   lifecycle_rules = [
+    ## Lifecycle rule policy 1 (if age greater than 1 day set to storage class Coldline)
     {
       action = {
         type          = "SetStorageClass"
@@ -22,18 +23,15 @@ module "bucket" {
       condition = {
         age           = 1
       }
+    },
+  ## Lifecycle rule policy 2 (if age greater than 4 days delete recovery point)
+    {
+      action = {
+        type          = "Delete"
+      }
+      condition = {
+        age           = 4
+      }
     }
   ]
-
-  ## Lifecycle rule policy 2 (if age greater than 4 days delete recovery point)
-  #lifecycle_rules = [
-  #{
-  #  action = {
-  #    type = "Delete"
-  #  }
-  #  condition = {
-  #    age = "4"
-  #  }
-  #}
-  #]
 }

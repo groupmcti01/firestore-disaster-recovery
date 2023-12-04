@@ -1,6 +1,12 @@
 module "bucket" {
   source = "../modules/bucket"
 
+project_id                          =       "001"
+project_name                        =       "capstone2"
+organization                        =       "mcti"
+environment                         =       "test"
+region                              =       "northamerica-northeast1"
+
   name = "${var.project_name}-${var.organization}-${var.bucket_name}-${var.environment}"
   location                      =   var.region
   project                       =   "${var.project_id}-${var.project_name}-${var.organization}-${var.environment}"

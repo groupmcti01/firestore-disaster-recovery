@@ -1,3 +1,38 @@
+# id project 
+variable "project_id" {
+  type        =   string
+  description =   "Project ID"
+  default     =   "001"
+}
+
+# name project 
+variable "project_name" {
+  type        =   string
+  description =   "Project Name"
+  default     =   "capstone2"
+}
+
+# organization name
+variable "organization" {
+  type        =   string
+  description =   "Organization Name"
+  default     =   "mcti"
+}
+
+# region
+variable "region" {
+  type        =   string
+  description =   "Region"
+  default     =   "northamerica-northeast1" 
+}
+
+# environment name
+variable "environment" {
+  type        =   string
+  description =   "Environment Name"
+  default     =   "test"
+}
+
 variable "bucket_name_state" {
     type        =   string
     description =   "Storage tf state file"

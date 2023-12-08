@@ -5,7 +5,7 @@ output "bucket" {
 
 output "name" {
   description = "Bucket name."
-  value       = google_storage_bucket.mcti-capstone2-bucket.bucket_name
+  value       = google_storage_bucket.mcti-capstone2-bucket.name
 }
 
 output "url" {

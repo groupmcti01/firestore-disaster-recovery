@@ -7,10 +7,10 @@ module "bucket" {
   storage_class                 =   "STANDARD"
 
 
-  retention_policy = {
-    is_locked        =  false
-    retention_period =  259200
-  }
+#  retention_policy = {
+#    is_locked        =  false
+#    retention_period =  259200
+#  }
   
   
   lifecycle_rules = [

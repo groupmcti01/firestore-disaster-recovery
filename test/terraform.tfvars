@@ -70,7 +70,7 @@ workflow_trigger = {
   attempt_deadline      = "300s"
 }
 
-workflow_source         = "<<-EOF
+workflow_source         = "<<-EOT
 - initialize:
     assign:
       - project: mcti-capstone2-testing
@@ -85,7 +85,7 @@ workflow_source         = "<<-EOF
     result: result
 - result: 
     return: $${result}
-  EOF"
+  EOT"
 
 
 # backend

@@ -12,8 +12,13 @@ storage_class                       =       "STANDARD"
 uniform_bucket_level_access         =       true
 
 ## Retention period in seconds = 3 days
-retention_period.retention_period   =       259200
-retention_period.is_locked          =       true
+
+retention_policy = [
+{
+  retention_period   =       259200
+  is_locked          =       true
+}
+]
 
 ## Lifecycle rule policy 1 (if age greater than 1 day set to storage class Coldline)
 #lifecycle_rule_age_coldline         =       1

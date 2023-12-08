@@ -1,6 +1,6 @@
 output "url" {
   description = "Bucket URL (for single use)."
-  value       = google_storage_bucket.mcti-capstone2-bucket.url
+  value       = google_storage_bucket.bucket.url
 }
 
 output "bucket" {
@@ -10,5 +10,5 @@ output "bucket" {
 
 output "name" {
   description = "Bucket name."
-  value       = google_storage_bucket.mcti-capstone2-bucket.bucket_name
+  value       = google_storage_bucket.bucket.bucket_name
 }

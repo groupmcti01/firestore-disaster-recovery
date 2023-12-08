@@ -46,16 +46,7 @@ resource "google_storage_bucket_iam_member" "members" {
   for_each = {
     for m in var.iam_members : "${m.role} ${m.member}" => m
   }
-  bucket = google_storage_bucket.bucket.name
+  bucket = google_storage_bucket.mcti-capstone2-bucket.name
   role   = each.value.role
   member = each.value.member
-}
-
-variable "iam_members" {
-  description = "The list of IAM members to grant permissions on the bucket."
-  type = list(object({
-    role   = string
-    member = string
-  }))
-  default = []
 }

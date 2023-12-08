@@ -12,7 +12,8 @@ storage_class                       =       "STANDARD"
 uniform_bucket_level_access         =       true
 
 ## Retention period in seconds = 3 days
-retention_period                    =       259200
+retention_period.retention_period   =       259200
+retention_period.is_locked          =       true
 
 ## Lifecycle rule policy 1 (if age greater than 1 day set to storage class Coldline)
 #lifecycle_rule_age_coldline         =       1
@@ -25,4 +26,4 @@ retention_period                    =       259200
 
 
 # backend
-#key_terraform                       =       "test/terraform.tfstate"
+key_terraform                       =       "test/terraform.tfstate"

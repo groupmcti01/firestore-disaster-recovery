@@ -32,6 +32,16 @@ variable "bucket_name" {
   type        =   string
 }
 
+variable "uniform_bucket_level_access" {
+  description = "Enables Bucket Policy Only access to a bucket"
+  type        =   bool
+}
+
+variable "storage_class" {
+  description = "The Storage Class of the bucket."
+  type        =   string
+}
+
 variable "retention_policy" {
   description = "Configuration of the bucket's data retention policy for how long objects in the bucket should be retained."
   type = object({

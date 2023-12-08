@@ -63,7 +63,7 @@ workflow_service_account  = "mcti-capstone2-poc-invoker@mcti-capstone2-testing.i
 
 
 workflow_trigger = {
-  name                  = string
+  name                  = "mcit-capstone2-export-testing"
   description           = "Cron job for workflows mctit-capstone2-workflow-testing"
   schedule              = "*/15 * * * *"
   time_zone             = "America/New_York"

@@ -3,7 +3,7 @@
 
 
 location                              =     "northamerica-northeast1"
-project_id                            =       "mcti-capstone2-testing"
+project_id                            =     "mcti-capstone2-testing"
 
 # Bucket settings 
 
@@ -39,6 +39,11 @@ lifecycle_rules = [
     }
   }
 ]
+
+iam_members = [{
+    role   = "roles/storage.objectViewer"
+    member = "group:mcti.testing@labroom.online"
+  }]
 
 # backend
 key_terraform                       =       "test/terraform.tfstate"

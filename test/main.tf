@@ -19,7 +19,7 @@ module "firestore" {
   location                      =   var.location
   project_id                    =   var.project_id
   
-  create_duration                = var.creation_duration
+  create_duration                = var.create_duration
   disable_on_destroy             = var.disable_on_destroy
   database_type                  = var.database_type
   firestore_name                 = var.firestore_name

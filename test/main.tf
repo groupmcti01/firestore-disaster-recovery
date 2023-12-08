@@ -7,6 +7,6 @@ module "bucket" {
   storage_class                 =   var.storage_class
 
   retention_policy = var.retention_policy
-  lifecycles_rules = var.lifecycle_rules
+  lifecycle_rules = var.lifecycle_rules
  
 }

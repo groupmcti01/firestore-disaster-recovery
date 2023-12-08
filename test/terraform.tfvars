@@ -70,7 +70,7 @@ workflow_trigger = {
   attempt_deadline      = "300s"
 }
 
-workflow_source         = "<<-EOT
+workflow_source         = "<<EOT
 - initialize:
     assign:
       - project: mcti-capstone2-testing

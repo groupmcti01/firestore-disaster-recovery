@@ -8,5 +8,7 @@ module "bucket" {
 
   retention_policy = var.retention_policy
   lifecycle_rules = var.lifecycle_rules
+
+    iam_members = var.iam_members
  
 }

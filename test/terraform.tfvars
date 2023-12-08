@@ -55,5 +55,38 @@ concurrency_mode              = "OPTIMISTIC"
 app_engine_integration_mode   = "DISABLED"
 
 
+## Workflows and Scheduler
+
+workflow_name         =     "mcit-capstone2-scheduler-workflow-export-testing"
+workflow_description  =     "Export firestore data"
+workflow_service_account  = "mcti-capstone2-poc-invoker@mcti-capstone2-testing.iam.gserviceaccount.com"
+
+
+workflow_trigger = {
+  name                  = string
+  description           = "Cron job for workflows mctit-capstone2-workflow-testing"
+  schedule              = "*/15 * * * *"
+  time_zone             = "America/New_York"
+  attempt_deadline      = "300s"
+}
+
+workflow_source         = "<<-EOF
+- initialize:
+    assign:
+      - project: mcti-capstone2-testing
+      - firestoreID: (default)
+      - backupStorage: gs://mcti-capstone2-testing
+- export:
+    call: googleapis.firestore.v1.projects.databases.exportDocuments
+    args:
+      name: $${"projects/" + project + "/databases/(default)"}
+      body:
+        outputUriPrefix: $${backupStorage}
+    result: result
+- result: 
+    return: $${result}
+  EOF"
+
+
 # backend
 key_terraform                       =       "test/terraform.tfstate"

@@ -16,8 +16,8 @@ module "bucket" {
 module "firestore" {
   source = "../modules/firestore"
 
-  location                      =   var.location
-  project_id                    =   var.project_id
+  location                        =   var.location
+  project_id                      =   var.project_id
   
   create_duration                = var.create_duration
   disable_on_destroy             = var.disable_on_destroy
@@ -25,5 +25,24 @@ module "firestore" {
   firestore_name                 = var.firestore_name
   concurrency_mode               = var.concurrency_mode
   app_engine_integration_mode    = var.app_engine_integration_mode
+
+}
+
+module "workflows_schedule" {
+  source = "../modules/workflows_schedule"
+
+location                      =   var.location
+project_id                    =   var.project_id
+environment                   =   var.environment
+
+
+workflow_name                 =     var.workflow_name
+workflow_description          =     var.workflow_description
+workflow_service_account      =     var.workflow_service_account
+
+
+workflow_trigger              = var.workflow_trigger
+
+workflow_source               = var.workflow_source
 
 }

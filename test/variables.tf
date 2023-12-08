@@ -67,6 +67,36 @@ variable "iam_members" {
   default = []
 }
 
+## Firestore Variables
+variable "create_duration" {
+  type = string
+}
+
+variable "disable_on_destroy" {
+  type = bool
+  default = false
+}
+
+variable "database_type" {
+  description = "FireStore Database type"
+  type        = string
+}
+
+variable "firestore_name" {
+  description   = "Firestore database name"
+  type          = string
+}
+
+variable "concurrency_mode" {
+  description   = "The concurrency control mode to use for this database"
+  type          = string
+}
+
+variable "app_engine_integration_mode" {
+  description = "The App Engine integration mode to use for this database"
+  type        = string
+}
+
 ## Optional: Backend Settings
 # backend
 variable "key_terraform" {

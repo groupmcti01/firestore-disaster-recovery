@@ -45,5 +45,15 @@ iam_members = [{
     member = "group:mcti.testing@labroom.online"
   }]
 
+
+## Firestore Settings
+create_duration               = "60s"
+disable_on_destroy            = false
+database_type                 = "FIRESTORE_NATIVE"
+firestore_name                = "(default)"
+concurrency_mode              = "OPTIMISTIC"
+app_engine_integration_mode   = "DISABLED"
+
+
 # backend
 key_terraform                       =       "test/terraform.tfstate"

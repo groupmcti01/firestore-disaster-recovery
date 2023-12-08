@@ -1,18 +1,11 @@
-# name project 
-variable "project_name" {
-  type        =   string
-  description =   "Project Name"
-  default     =   "capstone2"
-}
 
-# organization name
-variable "organization" {
-  type        =   string
-  description =   "Organization Name"
-  default     =   "mcti"
-}
+## Test Environment
+## Convention Name: 
+##   organization-project-environment
+##   organization-project-name-environment
+### Global Settings for the test environment
 
-# region
+# region or location 
 variable "location" {
   type        =   string
   description =   "Region"
@@ -26,23 +19,30 @@ variable "environment" {
   default     =   "testing"
 }
 
+# Environment Test Settings
+
 variable "project_id" {
   description = "Project ID"
   type        = string
-# default     = "${var.organization}-${var.project_name}-${var.environment}"
-  default     = "mcti-capstone2-testing"
 }
 
-# bucket name
+# Bucket Arguments
 variable "bucket_name" {
+  description =   "Storage for FireStore Database backups"
   type        =   string
-  description =   ""
-# default     =   "${var.organization}-${var.project_name}-firestore-backup-${var.environment}"
-  default     =   "mcti-capstone2-firestore-backup-testing"
 }
 
+variable "retention_policy" {
+  description = "Configuration of the bucket's data retention policy for how long objects in the bucket should be retained."
+  type = object({
+    is_locked        = bool
+    retention_period = number
+  })
+}
+
+
+## Optional: Backend Settings
 # backend
 variable "key_terraform" {
   type        =   string
-  default     =   "testing/terraform.tfstate"
 }

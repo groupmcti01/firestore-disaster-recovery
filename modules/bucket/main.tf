@@ -4,9 +4,7 @@
 
 resource "google_storage_bucket" "mcti-capstone2-bucket" {
                    
-# name          = "${var.organization}-${var.project_name}-${var.bucket_name}-${var.environment}"
   name          = var.bucket_name
-# project       = "${var.organization}-${var.project_name}-${var.environment}"
   project       = var.project_id
   location      = var.location
   storage_class = var.storage_class

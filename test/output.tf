@@ -1,14 +1,14 @@
 output "url" {
   description = "Bucket URL (for single use)."
-  value       = google_storage_bucket.bucket.url
+  value       = module.bucket.url
 }
 
 output "bucket" {
   description = "The created storage bucket"
-  value       = google_storage_bucket.bucket
+  value       = module.bucket
 }
 
 output "name" {
   description = "Bucket name."
-  value       = google_storage_bucket.bucket.bucket_name
+  value       = module.bucket.name
 }

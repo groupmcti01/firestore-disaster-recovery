@@ -6,7 +6,7 @@ module "bucket" {
   project_id                    =   var.project_id
   storage_class                 =   "STANDARD"
 
-
+  retention_policy = var.retention_policy
 #  retention_policy = {
 #    is_locked        =  false
 #    retention_period =  259200

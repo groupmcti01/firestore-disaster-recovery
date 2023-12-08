@@ -18,15 +18,27 @@ retention_policy = {
   is_locked          =       true
 }
 
-## Lifecycle rule policy 1 (if age greater than 1 day set to storage class Coldline)
-#lifecycle_rule_age_coldline         =       1
-#lifecycle_rule_set_storage_type     =       "SetStorageClass"     
-#lifecycle_rule_set_storage_class    =       "COLDLINE"
-
-## Lifecycle rule policy 2 (if age greater than 4 days delete recovery point)
-#lifecycle_rule_age_deletion         =       4       
-#lifecycle_rule_set_deletion         =       "Delete"
-
+lifecycle_rules = [
+  ## Lifecycle rule policy 1 (if age greater than 1 day set to storage class Coldline)
+  {
+    action = {
+      type          = "SetStorageClass"
+      storage_class = "COLDLINE"
+    }
+    condition = {
+      age           = 1
+    }
+  },
+  ## Lifecycle rule policy 2 (if age greater than 4 days delete recovery point)
+  {
+    action = {
+      type          = "Delete"
+    }
+    condition = {
+      age           = 4
+    }
+  }
+]
 
 # backend
 key_terraform                       =       "test/terraform.tfstate"

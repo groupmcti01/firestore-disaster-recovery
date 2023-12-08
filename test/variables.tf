@@ -50,6 +50,13 @@ variable "retention_policy" {
   })
 }
 
+variable "lifecycle_rules" {
+  description = "The bucket's Lifecycle Rules configuration."
+  type = list(object({
+    action = any
+    condition = any
+  }))
+}
 
 ## Optional: Backend Settings
 # backend

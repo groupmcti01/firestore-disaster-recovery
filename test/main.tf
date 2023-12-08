@@ -43,6 +43,21 @@ workflow_service_account      =     var.workflow_service_account
 
 workflow_trigger              = var.workflow_trigger
 
-workflow_source               = var.workflow_source
+workflow_source               = <<EOT
+- initialize:
+    assign:
+      - project: mcti-capstone2-testing
+      - firestoreID: (default)
+      - backupStorage: gs://mcti-capstone2-testing
+- export:
+    call: googleapis.firestore.v1.projects.databases.exportDocuments
+    args:
+      name: $${"projects/" + project + "/databases/(default)"}
+      body:
+        outputUriPrefix: $${backupStorage}
+    result: result
+- result: 
+    return: $${result}
+  EOT
 
 }

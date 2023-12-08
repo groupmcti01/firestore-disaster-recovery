@@ -70,22 +70,7 @@ workflow_trigger = {
   attempt_deadline      = "300s"
 }
 
-workflow_source         = "<<EOT
-- initialize:
-    assign:
-      - project: mcti-capstone2-testing
-      - firestoreID: (default)
-      - backupStorage: gs://mcti-capstone2-testing
-- export:
-    call: googleapis.firestore.v1.projects.databases.exportDocuments
-    args:
-      name: $${"projects/" + project + "/databases/(default)"}
-      body:
-        outputUriPrefix: $${backupStorage}
-    result: result
-- result: 
-    return: $${result}
-  EOT"
+workflow_source         = ""
 
 
 # backend

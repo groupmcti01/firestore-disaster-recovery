@@ -9,11 +9,11 @@ data "google_compute_default_service_account" "default" {
 
 resource "google_cloud_scheduler_job" "mcit-capstone2-scheduler-workflow" {
   project           =   var.project_id
-  name              =   workflow_trigger.name
-  description       =   workflow_trigger.description
-  schedule          =   workflow_trigger.schedule
-  time_zone         =   workflow_trigger.time_zone
-  attempt_deadline  =   workflow_trigger.attempt_deadline
+  name              =   var.workflow_trigger.name
+  description       =   var.workflow_trigger.description
+  schedule          =   var.workflow_trigger.schedule
+  time_zone         =   var.workflow_trigger.time_zone
+  attempt_deadline  =   var.workflow_trigger.attempt_deadline
   region            =   var.location
 
   http_target {

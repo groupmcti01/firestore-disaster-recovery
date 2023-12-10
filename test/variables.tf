@@ -21,11 +21,10 @@ variable "location" {
   default     =   "northamerica-northeast1" 
 }
 
-# environment name
 variable "environment" {
   type        =   string
-  description =   "Environment Name"
-  default     =   "testing"
+  description =   "Tag Project Name in prod, dev, and test environments"
+  default     =   "capstone2"
 }
 
 # Environment Test Settings

@@ -34,6 +34,7 @@ module "workflows_schedule" {
 location                      =   var.location
 project_id                    =   var.project_id
 environment                   =   var.environment
+gcp_service_list              =   var.gcp_service_list
 
 
 workflow_name                 =     var.workflow_name

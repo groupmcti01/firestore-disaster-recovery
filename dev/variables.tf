@@ -156,3 +156,11 @@ variable "key_terraform" {
   type        =   string
 }
 
+variable "gcp_service_list" {
+  description ="The list of apis necessary for Cloud Workflows"
+  type = list(string)
+  default = [
+    "iam.googleapis.com",
+    "compute.googleapis.com"
+  ]
+}

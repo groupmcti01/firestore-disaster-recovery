@@ -43,7 +43,7 @@ lifecycle_rules = [
 
 iam_members = [{
     role   = "roles/storage.objectViewer"
-    member = "group:mcti.prod@labroom.online"
+    member = "group:prod.mcti@labroom.online"
   }]
 
 

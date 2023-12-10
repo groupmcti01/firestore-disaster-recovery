@@ -61,3 +61,12 @@ variable "service_account_create" {
   type        = bool
   default     = false
 }
+
+variable "gcp_service_list" {
+  description ="The list of apis necessary for Cloud Workflows"
+  type = list(string)
+  default = [
+    "iam.googleapis.com",
+    "compute.googleapis.com"
+  ]
+}

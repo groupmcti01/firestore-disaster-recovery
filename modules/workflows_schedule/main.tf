@@ -8,8 +8,9 @@ data "google_compute_default_service_account" "default" {
 }
 
 resource "google_project_service" "project" {
+  for_each = toset(var.gcp_service_list)
   project = var.project_id
-  service = "iam.googleapis.com"
+  service = each.key
 
   timeouts {
     create = "30m"

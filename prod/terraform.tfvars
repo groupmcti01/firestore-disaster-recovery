@@ -2,7 +2,7 @@
 # Setting for the testing environment
 
 organization                          =     "mcti-group"
-workspace                             =     "firestore-disaster-recovery-prod"
+workspace                             =     "firestore-disaster-recovery"
 location                              =     "northamerica-northeast1"
 project_id                            =     "mcti-capstone2-prod"
 

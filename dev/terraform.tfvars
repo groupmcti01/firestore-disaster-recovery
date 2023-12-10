@@ -60,7 +60,7 @@ app_engine_integration_mode   = "DISABLED"
 
 workflow_name         =     "mcit-capstone2-scheduler-workflow-export-dev"
 workflow_description  =     "Export firestore data"
-workflow_service_account  = "capstone2-mcti-dev-sa@mcti-capstone2-dev.iam.gserviceaccount.com"
+workflow_service_account  = "capstone2-mcti-dev-invoker@mcti-capstone2-dev.iam.gserviceaccount.com"
 
 
 workflow_trigger = {

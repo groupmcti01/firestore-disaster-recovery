@@ -5,6 +5,15 @@
 ##   organization-project-name-environment
 ### Global Settings for the test environment
 
+# organization
+variable "organization" {
+  type      =   string
+}
+
+variable "workspace" {
+  type      =   string
+}
+
 # region or location 
 variable "location" {
   type        =   string

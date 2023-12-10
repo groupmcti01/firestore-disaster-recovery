@@ -13,10 +13,11 @@ provider "google" {
 
 
 terraform {
-  backend "gcs" {
-    bucket = var.bucket_name_state
-    region = var.location_bucket_tf
-    key    = var.key_terraform
-    prefix = var.environment
+  cloud {
+    organization = "var.organization"
+
+    workspaces {
+      name = "var.workspace"
+    }
   }
 }

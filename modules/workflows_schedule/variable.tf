@@ -67,6 +67,8 @@ variable "gcp_service_list" {
   type = list(string)
   default = [
     "iam.googleapis.com",
-    "compute.googleapis.com"
+    "compute.googleapis.com",
+    "cloudresourcemanager.googleapis.com",
+    "workflows.googleapis.com"
   ]
 }

@@ -49,7 +49,7 @@ workflow_source               = <<EOT
     assign:
       - project: mcti-capstone2-dev
       - firestoreID: (default)
-      - backupStorage: gs://mcti-capstone2-dev
+      - backupStorage: gs://mcti-capstone2-firestore-backup-dev
 - export:
     call: googleapis.firestore.v1.projects.databases.exportDocuments
     args:

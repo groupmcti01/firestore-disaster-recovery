@@ -7,6 +7,13 @@ data "google_compute_default_service_account" "default" {
   project = var.project_id
 }
 
+resource "google_project_service" "project" {
+  project = var.project_id
+  service = "iam.googleapis.com"
+
+  disable_dependent_services = true
+}
+
 resource "google_cloud_scheduler_job" "mcit-capstone2-scheduler-workflow" {
   project           =   var.project_id
   name              =   var.workflow_trigger.name

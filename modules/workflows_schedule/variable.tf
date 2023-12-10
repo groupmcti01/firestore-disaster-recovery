@@ -69,6 +69,7 @@ variable "gcp_service_list" {
     "iam.googleapis.com",
     "compute.googleapis.com",
     "cloudresourcemanager.googleapis.com",
-    "workflows.googleapis.com"
+    "workflows.googleapis.com",
+    "cloudscheduler.googleapis.com"
   ]
 }
